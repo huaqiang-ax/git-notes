@@ -20,6 +20,8 @@ Git是一个 “分布式版本管理工具”，简单的理解版本管理工�
 
 ## 目录
 * [展示帮助信息](#展示帮助信息)
+* [生成SSH公钥](#生成SSH公钥)
+* [配置SSH公钥](#配置SSH公钥)
 * [回到远程仓库的状态](#回到远程仓库的状态)
 * [重设第一个commit](#重设第一个-commit)
 * [展示工作区和暂存区的不同](#展示工作区和暂存区的不同)
@@ -126,6 +128,30 @@ The common Git guides are:
 
 'git help -a' and 'git help -g' list available subcommands and some concept guides. See 'git help <command>' or 'git help <concept>' to read about a specific subcommand or concept.
 ```
+
+## 生成SSH公钥
+
+关键是看有没有用 **something** 和 **something.pub** 来命名的一对文件，这个 **something** 通常就是 **id_dsa 或 id_rsa**。
+有 **.pub** 后缀的文件就是公钥，另一个文件则是密钥。假如没有这些文件，或者干脆连 **.ssh** 目录都没有，可以用 **ssh-keygen** 来创建。
+```sh
+git ssh-keygen
+```
+查看公钥。公钥的样子大致如下：
+```sh
+cat ~/.ssh/id_rsa.pub
+ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAklOUpkDHrfHY17SbrmTIpNLTGK9Tjom/BWDSU
+GPl+nafzlHDTYW7hdI4yZ5ew18JH4JW9jbhUFrviQzM7xlELEVf4h9lFX5QVkbPppSwg0cda3
+Pbv7kOdJ/MTyBlWXFCR+HAo3FXRitBqxiX1nKhXpHAZsMciLq8V6RjsNAQwdsdMFvSlVK/7XA
+t3FaoJoAsncM1Q9x5+3V0Ww68/eIFmb1zuUFljQJKprrX88XypNDvjYNby6vw/Pb0rwert/En
+mZ+AW4OZPnTPI89ZPmVMLuayrD2cE86Z/il8b+gw3r3+1nKatmIkjn2so1d01QraTlMqVSsbx
+NrRFi9wrf+M7Q== 1451343430@qq.com
+```
+
+## 配置SSH公钥
+
+图解。
+![](./img/git-ssh.png)
+
 
 ## 回到远程仓库的状态
 
